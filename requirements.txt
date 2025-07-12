@@ -1,5 +1,5 @@
 streamlit
-pypfopt
+PyPortfolioOpt
 numpy
 pandas
 yfinance
