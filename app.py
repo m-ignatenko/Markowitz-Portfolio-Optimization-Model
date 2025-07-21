@@ -61,19 +61,19 @@ with main_col:
         plt.title("Efficient Frontier")
         plt.xlabel("Volatility")
         plt.ylabel("Return")
-        ef = efficient_frontier.EfficientFrontier(mu, s)
+        ef = efficient_frontier.EfficientFrontier(mu, s, solver="SCS")
         risk = ef.efficient_risk(a)
         x = ef.portfolio_performance(verbose=False,risk_free_rate=0.0434)
         ret = x[0]
         vol = x[1]
 
-        ef2 = efficient_frontier.EfficientFrontier(mu, s)
+        ef2 = efficient_frontier.EfficientFrontier(mu, s, solver="SCS")
         ef2.max_sharpe()
         x2 = ef2.portfolio_performance(verbose=False,risk_free_rate=0.0434)
         ret_s = x2[0]
         vol_s = x2[1]
 
-        ef = efficient_frontier.EfficientFrontier(mu, s)
+        ef = efficient_frontier.EfficientFrontier(mu, s, solver="SCS")
         plotting.plot_efficient_frontier(ef)
         plt.plot(vol,ret, 'ro',label='Your portfolio')
         plt.plot(vol_s,ret_s, 'go',label ='Max Sharpe ratio portfolio')
